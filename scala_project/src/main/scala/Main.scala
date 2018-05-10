@@ -6,12 +6,13 @@ object Main extends App {
 
 object ScannerTest {
   def menu() {
+    println("This is the menu.\nType Query or Reports. Type 'exit' to leave.")
     Iterator.continually(io.StdIn.readLine)
-      .takeWhile(_ != "x")
+      .takeWhile(_ != "exit")
       .foreach{
         case "this" => println("THIS")  /* do this */
         case "that" => println("THAT")  /* do that */
-        case e      => println(e)       /* default */
+        case e      => println("Does not recognize this option.")       /* default */
       }
   }
 }
