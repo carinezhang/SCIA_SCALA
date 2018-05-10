@@ -9,7 +9,7 @@ case class Runway (
 case class Airport (
   id : Int,
   ident : String,
-  type : String,
+  type_a : String,
   name : String,
   latitude_deg : Float,
   longitude_deg : Float,
