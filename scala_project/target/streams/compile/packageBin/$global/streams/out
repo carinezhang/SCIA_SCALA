@@ -1,9 +1,29 @@
-[0m[[0m[0minfo[0m] [0m[0mPackaging /home/patafoin/Scolaire/ING2/Scala/scala_project/target/scala-2.12/hello-world_2.12-1.0.jar ...[0m
+[0m[[0m[0minfo[0m] [0m[0mPackaging /home/patafoin/Scolaire/ING2/Scala/SCIA_SCALA/scala_project/target/scala-2.12/scala_project_2.12-1.0.jar ...[0m
 [0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ScannerTest$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/SCIA_SCALA/scala_project/target/scala-2.12/classes/ScannerTest$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Airport$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/SCIA_SCALA/scala_project/target/scala-2.12/classes/Airport$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Main$delayedInit$body.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/scala_project/target/scala-2.12/classes/Main$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/SCIA_SCALA/scala_project/target/scala-2.12/classes/Main$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Parser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/SCIA_SCALA/scala_project/target/scala-2.12/classes/Parser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Countries$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/SCIA_SCALA/scala_project/target/scala-2.12/classes/Countries$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Runway.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/SCIA_SCALA/scala_project/target/scala-2.12/classes/Runway.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Airport.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/SCIA_SCALA/scala_project/target/scala-2.12/classes/Airport.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Parser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/SCIA_SCALA/scala_project/target/scala-2.12/classes/Parser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Runway$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/SCIA_SCALA/scala_project/target/scala-2.12/classes/Runway$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Countries.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/SCIA_SCALA/scala_project/target/scala-2.12/classes/Countries.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Main.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/scala_project/target/scala-2.12/classes/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/SCIA_SCALA/scala_project/target/scala-2.12/classes/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ScannerTest.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/SCIA_SCALA/scala_project/target/scala-2.12/classes/ScannerTest.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Main$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/scala_project/target/scala-2.12/classes/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patafoin/Scolaire/ING2/Scala/SCIA_SCALA/scala_project/target/scala-2.12/classes/Main$.class[0m
 [0m[[0m[0minfo[0m] [0m[0mDone packaging.[0m
