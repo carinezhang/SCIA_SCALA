@@ -1,19 +1,38 @@
+import scala.io.Source
+
 object Parser {
 
-/*
-  def read_data(filename: String) : Vector[Data] = {
-    for {
-      line <- Source.fromFile(fileName).getLines().toVector
-        data <- parseCsvLine(line)
-    } yield data
+
+  // def read_data(filename: String) : Any= {// Vector[Data] = {
+  //   // for {
+  //   //   line <- Source.fromFile(fileName).getLines().toVector
+  //   //     data <- parseCsvLine(line)
+  //   // } yield data
+  //   for (line <- Source.fromFile("countries.csv").getLines) {
+  //     println(line)
+  //   }
+  // }
+
+  // def parseLine(line: String) : Option[Data] = {
+  //   line.split(",").toVector.map(_.trim) match {
+  //     case Vector(a, b, c, d) => Db.save()
+  //     case _ => println(s"WARNING UNKNOWN DATA FORMAT FOR LINE: $line");
+  //                                                               None
+  //   }
+  // }
+
+  def parseCountries(){
+    Db.save(Countries(1, "a", "b", "c"))
+    
+    /*Source.fromFile("countries.csv").getLines().drop(1).foreach { line =>
+      line.split(",").map(_.trim) match {
+        case Array(a,b,c,d, e) => Db.save(Countries(a.toInt,b,c,d)); println(a, b, c, d, e)
+        case Array(a,b,c,d, e,f) => Db.save(Countries(a.toInt,b,c,d));println(a, b, c, d, e,f)
+        case _ => println(s"WARNING UNKNOWN DATA FORMAT FOR LINE: $line");
+      }
+    }
+    */
+
   }
 
-  def parseLine(line: String) : Option[Data] = {
-    line.split(",").toVector.map(_.trim) match {
-      case Vector(, , , ) => Some(Data(date, time, longitude, latitude))
-      case _ => println(s"WARNING UNKNOWN DATA FORMAT FOR LINE: $line");
-                                                                None
-    }
-  }
-*/
 }

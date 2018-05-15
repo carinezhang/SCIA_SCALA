@@ -1,7 +1,9 @@
 object Main extends App {
   println("Hello, World!")
     val sca = ScannerTest
-    sca.menu()
+    val parse = Parser
+    parse.parseCountries()
+    //sca.menu()
 }
 
 object ScannerTest {

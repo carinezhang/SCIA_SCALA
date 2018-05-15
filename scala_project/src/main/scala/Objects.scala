@@ -24,3 +24,9 @@ case class Countries (
   continent : String
 )
 
+// import sorm._
+// object Db extends Instance (
+//   entities = Set() + Entity[Runway]() + Entity[Airport]() + Entity[Countries](unique = Set() + Seq("id")),
+//   url = "jdbc:h2:mem:test",
+//   initMode = InitMode.Create
+// )
