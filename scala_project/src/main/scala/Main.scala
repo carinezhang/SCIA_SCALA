@@ -3,7 +3,7 @@ package pkg
 
 import sorm._
 object Db extends Instance (
-  entities = Set() + Entity[Runway]() + Entity[Airport]() + Entity[Countries](),
+  entities = Set() + Entity[Runway]() + Entity[Airport]() + Entity[Country](),
   url = "jdbc:h2:mem:test",
   initMode = InitMode.DropAllCreate
 )
@@ -13,7 +13,7 @@ object Main extends App {
   println("Hello, World!")
   val sca = ScannerTest
   Parser.parseCountries()
-  Parser.parseAirports()
+  //Parser.parseAirports()
   //sca.menu()
 }
 

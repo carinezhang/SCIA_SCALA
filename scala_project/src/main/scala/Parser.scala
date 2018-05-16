@@ -2,38 +2,38 @@ package pkg
 import scala.io.Source
 
 object Parser {
+  val splitRegex = ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)"
 
-
-  // def read_data(filename: String) : Any= {// Vector[Data] = {
-  //   // for {
-  //   //   line <- Source.fromFile(fileName).getLines().toVector
-  //   //     data <- parseCsvLine(line)
-  //   // } yield data
-  //   for (line <- Source.fromFile("countries.csv").getLines) {
-  //     println(line)
-  //   }
-  // }
-
-  // def parseLine(line: String) : Option[Data] = {
-  //   line.split(",").toVector.map(_.trim) match {
-  //     case Vector(a, b, c, d) => Db.save()
-  //     case _ => println(s"WARNING UNKNOWN DATA FORMAT FOR LINE: $line");
-  //                                                               None
-  //   }
-  // }
+  def processString(x: String) = {
+    x.trim;
+    x.replace("\"", "");
+  }
 
   def parseCountries(){    
-    Source.fromFile("countries.csv").getLines().drop(1).foreach { line =>
-      line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)", 6).map(_.trim) match {
-        case Array(a,b,c,d,e,f) => Db.save(Countries(a.toInt,b,c,d))
+    Source.fromFile("countries.csv").getLines().drop(1).foreach {
+      line => {
+        val arr = line.split(splitRegex, 6).map(processString); 
+        Db.save(Country(arr(0).toInt,arr(1),arr(2),arr(3)))
       }
     }
   }
 
   def parseAirports(){    
-    Source.fromFile("airports.csv").getLines().drop(1).foreach { line =>
-      line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)", 11).map(_.trim) match {
-        case Array(a,b,c,d,e,f,g,h,i,j,k) => Db.save(Airport(a.toInt,b,c,d,e.toFloat,f.toFloat,h,k))
+    Source.fromFile("airports.csv").getLines().drop(1).foreach {
+      line => {
+        val arr = line.split(splitRegex, 11).map(processString);
+        // val country = Db.query[Country].whereEqual("code", arr(8)).fetchOne()
+        Db.save(Airport(
+          arr(8),
+          arr(0).toInt,
+          arr(1),
+          arr(2),
+          arr(3),
+          arr(4).toFloat,
+          arr(5).toFloat,
+          arr(7),
+          arr(10)
+        ))
       }
     }
   }

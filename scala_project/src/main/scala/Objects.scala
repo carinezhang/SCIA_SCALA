@@ -1,14 +1,14 @@
 package pkg
 
-case class Runway (
+case class Country (
   id_a : Int,
-  airport_ref : Int,
-  airport_ident : String,
-  surface : String,
-  le_indent : String
+  code : String,
+  name : String,
+  continent : String
 )
 
 case class Airport (
+  country_code : String, //Isocountrie
   id_a : Int,
   ident : String,
   type_a : String,
@@ -19,10 +19,10 @@ case class Airport (
   municipality : String
 )
 
-case class Countries (
+case class Runway (
   id_a : Int,
-  code : String,
-  name : String,
-  continent : String
+  airport_ref : Int,
+  airport_ident : String,
+  surface : String,
+  le_indent : String
 )
-
