@@ -1,9 +1,20 @@
+package pkg
+
+
+import sorm._
+object Db extends Instance (
+  entities = Set() + Entity[Runway]() + Entity[Airport]() + Entity[Countries](),
+  url = "jdbc:h2:mem:test",
+  initMode = InitMode.DropAllCreate
+)
+
 object Main extends App {
+
   println("Hello, World!")
-    val sca = ScannerTest
-    val parse = Parser
-    parse.parseCountries()
-    //sca.menu()
+  val sca = ScannerTest
+  val parse = Parser
+  parse.parseCountries()
+  //sca.menu()
 }
 
 object ScannerTest {

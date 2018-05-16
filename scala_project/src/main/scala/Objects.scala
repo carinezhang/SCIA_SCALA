@@ -1,5 +1,7 @@
+package pkg
+
 case class Runway (
-  id : Int,
+  id_a : Int,
   airport_ref : Int,
   airport_ident : String,
   surface : String,
@@ -7,7 +9,7 @@ case class Runway (
 )
 
 case class Airport (
-  id : Int,
+  id_a : Int,
   ident : String,
   type_a : String,
   name : String,
@@ -18,15 +20,9 @@ case class Airport (
 )
 
 case class Countries (
-  id : Int,
+  id_a : Int,
   code : String,
   name : String,
   continent : String
 )
 
-// import sorm._
-// object Db extends Instance (
-//   entities = Set() + Entity[Runway]() + Entity[Airport]() + Entity[Countries](unique = Set() + Seq("id")),
-//   url = "jdbc:h2:mem:test",
-//   initMode = InitMode.Create
-// )

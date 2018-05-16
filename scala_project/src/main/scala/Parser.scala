@@ -1,3 +1,4 @@
+package pkg
 import scala.io.Source
 
 object Parser {
@@ -21,18 +22,13 @@ object Parser {
   //   }
   // }
 
-  def parseCountries(){
-    Db.save(Countries(1, "a", "b", "c"))
-    
-    /*Source.fromFile("countries.csv").getLines().drop(1).foreach { line =>
-      line.split(",").map(_.trim) match {
-        case Array(a,b,c,d, e) => Db.save(Countries(a.toInt,b,c,d)); println(a, b, c, d, e)
-        case Array(a,b,c,d, e,f) => Db.save(Countries(a.toInt,b,c,d));println(a, b, c, d, e,f)
-        case _ => println(s"WARNING UNKNOWN DATA FORMAT FOR LINE: $line");
+  def parseCountries(){    
+    Source.fromFile("countries.csv").getLines().drop(1).foreach { line =>
+      line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)").map(_.trim) match {
+        case Array(a,b,c,d, e) => Db.save(Countries(a.toInt,b,c,d))
+        case Array(a,b,c,d, e,f) => Db.save(Countries(a.toInt,b,c,d))
+        case _ => println(s"WARNING UNKNOWN DATA FORMAT FOR LINE: $line")
       }
     }
-    */
-
   }
-
 }
