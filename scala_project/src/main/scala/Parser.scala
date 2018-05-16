@@ -37,4 +37,13 @@ object Parser {
       }
     }
   }
+
+  def parseRunways(){    
+    Source.fromFile("runways.csv").getLines().drop(1).foreach {
+      line => {
+        val arr = line.split(splitRegex, 9).map(processString); 
+        Db.save(Runway(arr(0).toInt,arr(1).toInt,arr(2),arr(5),arr(8)))
+      }
+    }
+  }
 }
