@@ -13,7 +13,8 @@ object Main extends App {
   println("Hello, World!")
   val sca = ScannerTest
   Parser.parseCountries()
-  //Parser.parseAirports()
+  Parser.parseAirports()
+  Parser.parseRunways()
   //sca.menu()
 }
 
@@ -23,9 +24,10 @@ object ScannerTest {
     Iterator.continually(io.StdIn.readLine)
       .takeWhile(_ != "exit")
       .foreach{
-        case "this" => println("THIS")  /* do this */
-        case "that" => println("THAT")  /* do that */
+        case "Option" => println("THIS")  /* do this */
+        case "Reports" => println("THAT")  /* do that */
         case e      => println("Does not recognize this option.")       /* default */
       }
   }
+  
 }
