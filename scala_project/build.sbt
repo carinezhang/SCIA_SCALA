@@ -23,13 +23,13 @@ version := "1.0"
 
 // Want to use a published library in your project?
 // You can define other libraries as dependencies in your build like this:
-libraryDependencies += "org.typelevel" %% "cats-core" % "1.0.1"
 libraryDependencies ++= Seq(
-   "org.sorm-framework" % "sorm" % "0.3.18",
-   "org.postgresql" % "postgresql" % "9.4-1201-jdbc41",
-   "com.h2database" % "h2" % "1.3.168"
+  "com.h2database" % "h2" % "1.3.168",
+  "org.slf4j" % "slf4j-simple" % "1.6.4",  
+  "org.sorm-framework" % "sorm" % "0.3.18",
+  "org.typelevel" %% "cats-core" % "1.0.1"
+   
 )
-libraryDependencies += "org.slf4j" % "slf4j-simple" % "1.6.4"
 
 //libraryDependencies += "org.sorm-framework" % "sorm" % "0.3.21"
 //dependencyOverrides += "org.scala-lang" % "scala-compiler" % scalaVersion.value
