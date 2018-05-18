@@ -22,9 +22,9 @@ object Parser {
     Source.fromFile("airports.csv").getLines().drop(1).foreach {
       line => {
         val arr = line.split(splitRegex, 11).map(processString);
-        // val country = Db.query[Country].whereEqual("code", arr(8)).fetchOne()
+        val country = Db.query[Country].whereEqual("code", arr(8)).fetchOne()
         Db.save(Airport(
-          arr(8),
+          country.get,
           arr(0).toInt,
           arr(1),
           arr(2),

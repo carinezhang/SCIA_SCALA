@@ -8,7 +8,7 @@ case class Country (
 )
 
 case class Airport (
-  country_code : String,
+  country_code : Country,
   id_a : Int,
   ident : String,
   type_a : String,

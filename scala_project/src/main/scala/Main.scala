@@ -13,8 +13,11 @@ object Main extends App {
   println("Hello, World!")
   val sca = ScannerTest
   Parser.parseCountries()
-  Parser.parseAirports()
-  Parser.parseRunways()
+  // Parser.parseAirports()
+  // Parser.parseRunways()
+  val res = Db.query[Country].whereEqual("name", "France").fetchOne()
+  println(res.get)
+
   //sca.menu()
 }
 
