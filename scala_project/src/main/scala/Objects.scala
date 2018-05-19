@@ -13,8 +13,8 @@ case class Airport (
   ident : String,
   type_a : String,
   name : String,
-  latitude_deg : Float,
-  longitude_deg : Float,
+  latitude_deg : Double,
+  longitude_deg : Double,
   continent : String,
   municipality : String
 )

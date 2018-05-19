@@ -29,8 +29,8 @@ object Parser {
           arr(1),
           arr(2),
           arr(3),
-          arr(4).toFloat,
-          arr(5).toFloat,
+          arr(4).toDouble,
+          arr(5).toDouble,
           arr(7),
           arr(10)
         ))
