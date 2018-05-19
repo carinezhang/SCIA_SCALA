@@ -15,11 +15,20 @@ object Main extends App {
   Parser.parseCountries()
   Parser.parseAirports()
   Parser.parseRunways()
-  //val res = Db.query[Country].whereEqual("name", "France").fetchOne()
-  val res = Db.query[Airport].whereEqual("ident", "00A").fetchOne()
-  println(res.get)
+  val c = get_country()
+  val res = get_airport()
+  //println(res.get)
 
-  sca.menu()
+  //sca.menu()
+
+  def get_country() : Option[Country] = {
+    Db.query[Country].whereEqual("name", "France").fetchOne()
+  }
+
+  def get_airport() : Option[Airport] = {
+    Db.query[Airport].whereEqual("country_code", c.get).fetchOne()
+  }
+
 }
 
 object ScannerTest {
