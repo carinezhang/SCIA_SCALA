@@ -12,11 +12,10 @@ object Main extends App {
 
   println("Hello, World!")
   val sca = ScannerTest
-  Parser.parseAirports()
   Parser.parseCountries()
+  Parser.parseAirports()
   //Parser.parseRunways()
   val c = get_country()
-  println(c.get)
   val res = get_airport()
   //println(res.get)
 
@@ -27,7 +26,7 @@ object Main extends App {
   }
 
   def get_airport() : Option[Airport] = {
-    Db.query[Airport].whereEqual("id", 6).fetchOne()
+    Db.query[Airport].whereEqual("country_code", c.get).fetchOne()
   }
 
 }
