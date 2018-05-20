@@ -31,7 +31,6 @@ object Report {
     println("The differents types of runways are:")
     val runways = getTypesRunways()
     print(runways)
-    println("DONE TYPE RUNWAAYS")
   }
 
   // Get the differents types of runways
@@ -56,7 +55,6 @@ object Report {
     println("the most common latitudes are:")
     val res = getTopLatitudes()
     print(res)
-    println("DONE")
   }
 
   def getTopLatitudes() : List[String] = {
