@@ -5,7 +5,6 @@ object Parser {
   val splitRegex = ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)"
 
   def processString(x: String): String = {
-    //x.replace("\"", "");
     if (x.startsWith("\"")) {
       x.drop(1).dropRight(1)
     } else {
