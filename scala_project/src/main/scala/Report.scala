@@ -16,7 +16,6 @@ object Report {
 
   def getTopCountries() : List[(Country, Int)] = {
     val res = Db.query[Airport].order("country_code.name").fetch()
-    // resGroup = Map[Country, Stream[Airport]]
     val resGroup = res.groupBy(_.country_code).map{
       case (country, airports) => country -> airports.length
     }.toStream.sortBy(_._2).reverse
@@ -36,7 +35,6 @@ object Report {
   // Get the differents types of runways
   def getTypesRunways() : List[String] = {
     val res = Db.query[Runway].order("surface").fetch()
-    // type res = Stream[Runway with Persistent]
     def aux(stream : Stream[Runway]) : List[String] = stream match {
       case Stream.Empty => List()
       case e #:: Stream.Empty => List(e.surface)
@@ -59,7 +57,6 @@ object Report {
 
   def getTopLatitudes() : List[String] = {
     val res = Db.query[Runway].order("le_indent").fetch()
-    // type res = Map[String, Stream[Runway]]
     val resGroup = res.groupBy(_.le_indent).map{
       case (str, runways) => str -> runways.length
       }.toStream.sortBy(_._2).reverse
@@ -71,10 +68,10 @@ object Report {
     Iterator.continually(io.StdIn.readLine)
       .takeWhile(_ != "exit")
       .foreach{
-        case "Top countries" => topCountries()  /* do this */
-        case "Type runways" => typeRunways()  /* do that */
-        case "Top latitudes" => topLatitudes()  /* do that */
-        case e      => println("Does not recognize this option.")       /* default */
+        case "Top countries" => topCountries()
+        case "Type runways" => typeRunways()
+        case "Top latitudes" => topLatitudes()
+        case e      => println("Does not recognize this option.")
       }
   }
 }
