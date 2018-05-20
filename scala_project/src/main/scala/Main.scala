@@ -9,31 +9,10 @@ object Db extends Instance (
 )
 
 object Main extends App {
-
-  println("Hello, World!")
-  val sca = ScannerTest
   Parser.parseCountries()
   Parser.parseAirports()
   Parser.parseRunways()
-  val c = get_country()
-  println(c.get)
-  val res = get_airport()
-  println(res.get)
-
-  //sca.menu()
-
-  val rep = Report
-  rep.menu()
-
-
-  def get_country() : Option[Country] = {
-    Db.query[Country].whereEqual("name", "France").fetchOne()
-  }
-
-  def get_airport() : Option[Airport] = {
-    Db.query[Airport].whereEqual("country_code", c.get).fetchOne()
-  }
-
+  ScannerTest.menu()
 }
 
 object Report {
@@ -109,9 +88,9 @@ object Report {
     Iterator.continually(io.StdIn.readLine)
       .takeWhile(_ != "exit")
       .foreach{
-        case "Top countries" => topCountries()  /* do this */
-        case "Type runways" => typeRunways()  /* do that */
-        case "Top latitudes" => topLatitudes()  /* do that */
+        case "Top countries" => topCountries()
+        case "Type runways" => typeRunways()
+        case "Top latitudes" => topLatitudes()
         case e      => println("Does not recognize this option.")       /* default */
       }
   }
@@ -124,7 +103,7 @@ object ScannerTest {
       .takeWhile(_ != "exit")
       .foreach{
         case "Query" => option()
-        case "Reports" => println("THAT")  /* do that */
+        case "Reports" => Report.menu()
         case e      => println("Does not recognize this option.")       /* default */
       }
   }
