@@ -41,25 +41,12 @@ object Report {
         runway => println(" - " + runway)
       }
     }
-
     val res = Db.query[Country].order("name").fetch()
     res.foreach{
       c => val airports = Db.query[Airport].whereEqual("country_code", c).fetch();
           val toPrint = getRunways(airports);
           print(c, toPrint)
     }
-
-
-/*
-    val res = Db.query[Runway].order("surface").fetch()
-    def aux(stream : Stream[Runway]) : List[String] = stream match {
-      case Stream.Empty => List()
-      case e #:: Stream.Empty => List(e.surface)
-      case e #:: e2 #:: reste if e.surface == e2.surface => aux(e #:: reste)
-      case e #:: reste => e.surface :: aux(reste)
-    }
-    aux(res)
-    */
   }
   
   def topLatitudes() = {
