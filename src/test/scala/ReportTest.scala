@@ -23,9 +23,12 @@ class ReportTest extends FunSuite{
     assert(Report.getTypesRunways().contains("s10") === false)
   }
 
+  val res = Report.getTopCountries()
+  println(res)
+
   test("Report.getTopCountries") {
     assert(Report.getTopCountries()(2)._1.name === "France2")
-    assert(Report.getTopCountries()(0)._1.name === "France")
+    assert(Report.getTopCountries()(0)._1.id_a === 2)
   }
 
   test("Report.getTopLatitudes") {
