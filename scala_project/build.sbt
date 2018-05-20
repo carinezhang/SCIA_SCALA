@@ -25,6 +25,8 @@ version := "1.0"
 // You can define other libraries as dependencies in your build like this:
 libraryDependencies ++= Seq(
   "com.h2database" % "h2" % "1.3.168",
+  "org.scalactic" %% "scalactic" % "3.0.5",
+  "org.scalatest" %% "scalatest" % "3.0.5" % "test",
   "org.slf4j" % "slf4j-simple" % "1.6.4",  
   "org.sorm-framework" % "sorm" % "0.3.18",
   "org.typelevel" %% "cats-core" % "1.0.1"

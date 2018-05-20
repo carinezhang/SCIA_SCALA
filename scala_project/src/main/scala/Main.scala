@@ -91,25 +91,28 @@ object Report {
         case "Top countries" => topCountries()
         case "Type runways" => typeRunways()
         case "Top latitudes" => topLatitudes()
-        case e      => println("Does not recognize this option.")       /* default */
+        case e      => println("Does not recognize this option.")
       }
   }
 }
 
 object ScannerTest {
   def menu() {
-    println("This is the menu.\nType Query or Reports. Type 'exit' to leave.")
-    Iterator.continually(io.StdIn.readLine)
+    val s = "This is the menu.\nType Query or Reports. Type 'exit' to leave."
+    Iterator.continually({println(s); io.StdIn.readLine})
       .takeWhile(_ != "exit")
       .foreach{
-        case "Query" => option()
+        case "Query" => Query.menu()
         case "Reports" => Report.menu()
-        case e      => println("Does not recognize this option.")       /* default */
+        case e      => println("Does not recognize this option.")
       }
   }
+}
 
-  def option() {
+object Query {
+  def menu() {
     println("Query Option: Enter a country name or code")
+    
     val input = io.StdIn.readLine
     val nameQuery = Db.query[Country].whereEqual("name", input)
     if (nameQuery.count() > 0) {
