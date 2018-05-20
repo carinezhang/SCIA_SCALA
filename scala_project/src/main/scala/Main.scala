@@ -67,20 +67,41 @@ object Report {
     println("The differents types of runways are:")
     val runways = getTypesRunways()
     print(runways)
+    println("DONE TYPE RUNWAAYS")
   }
 
   // Get the differents types of runways
   def getTypesRunways() : List[String] = {
     val res = Db.query[Runway].order("surface").fetch()
     // type res = Stream[Runway with Persistent]
-    def aux(stream : Stream[Runway], l : List[String]) : Unit = stream match {
-      case Stream.Empty => Unit
-      case s #:: reste if l.contains(s.surface) => aux(reste, s.surface :: l)
-      case s #:: reste => aux(reste, l)
+    def aux(stream : Stream[Runway]) : List[String] = stream match {
+      case Stream.Empty => List()
+      case e #:: Stream.Empty => List(e.surface)
+      case e #:: e2 #:: reste if e.surface == e2.surface => aux(e #:: reste)
+      case e #:: reste => e.surface :: aux(reste)
     }
-    val results = List()
-    aux(res, results)
-    results.reverse
+    aux(res)
+  }
+  
+  def topLatitudes() = {
+    def print(l : List[String], acc: Int = 10) : Unit = (l, acc) match {
+      case (Nil, _) => Unit
+      case (_, 0) => Unit
+      case (s :: reste, ac) => println(s + ","); print(reste, ac - 1)
+    }
+    println("the most common latitudes are:")
+    val res = getTopLatitudes()
+    print(res)
+    println("DONE")
+  }
+
+  def getTopLatitudes() : List[String] = {
+    val res = Db.query[Runway].order("le_indent").fetch()
+    // type res = Map[String, Stream[Runway]]
+    val resGroup = res.groupBy(_.le_indent).map{
+      case (str, runways) => str -> runways.length
+      }.toStream.sortBy(_._2).reverse
+    resGroup.toList.map{e => e._1}
   }
 
   def menu() = {
@@ -90,7 +111,7 @@ object Report {
       .foreach{
         case "Top countries" => topCountries()  /* do this */
         case "Type runways" => typeRunways()  /* do that */
-        case "Top latitudes" => println("THAT2")  /* do that */
+        case "Top latitudes" => topLatitudes()  /* do that */
         case e      => println("Does not recognize this option.")       /* default */
       }
   }
