@@ -1,4 +1,4 @@
-package pkg
+import pkg._
 
 import org.scalatest.FunSuite
 
