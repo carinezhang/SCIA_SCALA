@@ -23,17 +23,34 @@ object Report {
   }
 
   def typeRunways() = {
-    def print(l : List[String]) : Unit = l match {
-      case Nil => Unit
-      case s :: reste => println(s + ","); print(reste)
-    }
-    println("The differents types of runways are:")
-    val runways = getTypesRunways()
-    print(runways)
+    getTypesRunways()
   }
 
   // Get the differents types of runways
-  def getTypesRunways() : List[String] = {
+  def getTypesRunways() = {
+    // Pour chq country get les airports
+    // Pour chq airport, get les runway
+    def getRunways(airports : Stream[Airport]) : Set[String] = airports match {
+      case Stream.Empty => Set[String]()
+      case a #:: reste => val runways = Db.query[Runway].whereEqual("airport_ref", a.id_a).fetch().map{x => x.surface};
+                          runways.toSet ++ getRunways(reste)
+    }
+    def print(c: Country, s : Set[String]) = {
+      println(c.name + ":")
+      s.foreach{
+        runway => println(" - " + runway)
+      }
+    }
+
+    val res = Db.query[Country].order("name").fetch()
+    res.foreach{
+      c => val airports = Db.query[Airport].whereEqual("country_code", c).fetch();
+          val toPrint = getRunways(airports);
+          print(c, toPrint)
+    }
+
+
+/*
     val res = Db.query[Runway].order("surface").fetch()
     def aux(stream : Stream[Runway]) : List[String] = stream match {
       case Stream.Empty => List()
@@ -42,6 +59,7 @@ object Report {
       case e #:: reste => e.surface :: aux(reste)
     }
     aux(res)
+    */
   }
   
   def topLatitudes() = {

@@ -9,23 +9,6 @@ class ReportTest extends FunSuite{
   fillRunways()
   println("Data loaded !")
 
-  test("Report.getTypesRunways") {
-    assert(Report.getTypesRunways().contains("s") === true)
-    assert(Report.getTypesRunways().contains("s1") === true)
-    assert(Report.getTypesRunways().contains("s2") === true)
-    assert(Report.getTypesRunways().contains("s3") === true)
-    assert(Report.getTypesRunways().contains("s4") === true)
-    assert(Report.getTypesRunways().contains("s5") === true)
-    assert(Report.getTypesRunways().contains("s6") === true)
-    assert(Report.getTypesRunways().contains("s7") === true)
-    assert(Report.getTypesRunways().contains("s8") === true)
-    assert(Report.getTypesRunways().contains("s9") === true)
-    assert(Report.getTypesRunways().contains("s10") === false)
-  }
-
-  val res = Report.getTopCountries()
-  println(res)
-
   test("Report.getTopCountries") {
     assert(Report.getTopCountries()(2)._1.name === "France2")
     assert(Report.getTopCountries()(0)._1.id_a === 2)
