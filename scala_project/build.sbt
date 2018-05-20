@@ -32,6 +32,7 @@ libraryDependencies ++= Seq(
   "org.typelevel" %% "cats-core" % "1.0.1"
    
 )
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
 
 //libraryDependencies += "org.sorm-framework" % "sorm" % "0.3.21"
 //dependencyOverrides += "org.scala-lang" % "scala-compiler" % scalaVersion.value
