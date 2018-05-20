@@ -10,11 +10,12 @@ object Db extends Instance (
 
 object Main extends App {
 
-  println("Hello, World!")
-  val sca = ScannerTest
+  println("Loading data from the CSV files.")
   Parser.parseCountries()
   Parser.parseAirports()
   Parser.parseRunways()
+  println("Data loaded !")
+  val sca = ScannerTest
   sca.menu()
 }
 
