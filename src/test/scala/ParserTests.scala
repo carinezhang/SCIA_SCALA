@@ -6,3 +6,4 @@ class ParserTest extends FunSuite {
     assert(Parser.processString("\"string\"\"") == "string\"")
   }
 }
+ 
