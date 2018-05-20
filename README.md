@@ -7,7 +7,7 @@
 
 ## Running the project
 
-sbt test
+sbt run
 
 ## Running the tests
 
