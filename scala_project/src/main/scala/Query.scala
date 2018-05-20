@@ -3,15 +3,13 @@ package pkg
 object Query {
   def menu() {
     println("Query Option: Enter a country name or code")
-    
     val input = io.StdIn.readLine
     val nameQuery = Db.query[Country].whereEqual("name", input)
-    if (nameQuery.count() > 0) {
-      fetchAirports(nameQuery.fetchOne().get)
-    }
     val codeQuery = Db.query[Country].whereEqual("code", input)
-    if (codeQuery.count() > 0){
-      fetchAirports(codeQuery.fetchOne().get)
+    (codeQuery.count(), nameQuery.count()) match {
+      case (0, 0) => println("No airports has been recognised")
+      case (1, _) => fetchAirports(codeQuery.fetchOne().get)
+      case (_, 1) => fetchAirports(nameQuery.fetchOne().get)
     }
   }
   
