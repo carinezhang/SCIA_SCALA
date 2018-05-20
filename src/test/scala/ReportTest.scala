@@ -28,7 +28,7 @@ class ReportTest extends FunSuite{
 
   test("Report.getTopCountries") {
     assert(Report.getTopCountries()(2)._1.name === "France2")
-    assert(Report.getTopCountries() !== Nil)
+    assert(Report.getTopCountries()(0)._1.id_a === 2)
   }
 
   test("Report.getTopLatitudes") {
@@ -76,15 +76,15 @@ class ReportTest extends FunSuite{
   }
 
   def fillAirports() = {
-    Db.save(Airport(Db.fetchById[Country](2),1,"","","",1.0, 1.0,"",""))
-    Db.save(Airport(Db.fetchById[Country](2),1,"","","",1.0, 1.0,"",""))
-    Db.save(Airport(Db.fetchById[Country](2),1,"","","",1.0, 1.0,"",""))
-    Db.save(Airport(Db.fetchById[Country](2),1,"","","",1.0, 1.0,"",""))
-    Db.save(Airport(Db.fetchById[Country](3),1,"","","",1.0, 1.0,"",""))
-    Db.save(Airport(Db.fetchById[Country](3),1,"","","",1.0, 1.0,"",""))
-    Db.save(Airport(Db.fetchById[Country](3),1,"","","",1.0, 1.0,"",""))
-    Db.save(Airport(Db.fetchById[Country](4),1,"","","",1.0, 1.0,"",""))
-    Db.save(Airport(Db.fetchById[Country](4),1,"","","",1.0, 1.0,"",""))
-    Db.save(Airport(Db.fetchById[Country](5),1,"","","",1.0, 1.0,"",""))
+    Db.save(Airport(Db.query[Country].whereEqual("id_a", 2).fetchOne().get,1,"","","",1.0, 1.0,"",""))
+    Db.save(Airport(Db.query[Country].whereEqual("id_a", 2).fetchOne().get,1,"","","",1.0, 1.0,"",""))
+    Db.save(Airport(Db.query[Country].whereEqual("id_a", 2).fetchOne().get,1,"","","",1.0, 1.0,"",""))
+    Db.save(Airport(Db.query[Country].whereEqual("id_a", 3).fetchOne().get,1,"","","",1.0, 1.0,"",""))
+    Db.save(Airport(Db.query[Country].whereEqual("id_a", 3).fetchOne().get,1,"","","",1.0, 1.0,"",""))
+    Db.save(Airport(Db.query[Country].whereEqual("id_a", 4).fetchOne().get,1,"","","",1.0, 1.0,"",""))
+    Db.save(Airport(Db.query[Country].whereEqual("id_a", 4).fetchOne().get,1,"","","",1.0, 1.0,"",""))
+    Db.save(Airport(Db.query[Country].whereEqual("id_a", 5).fetchOne().get,1,"","","",1.0, 1.0,"",""))
+    Db.save(Airport(Db.query[Country].whereEqual("id_a", 6).fetchOne().get,1,"","","",1.0, 1.0,"",""))
+    Db.save(Airport(Db.query[Country].whereEqual("id_a", 7).fetchOne().get,1,"","","",1.0, 1.0,"",""))
   }
 }
