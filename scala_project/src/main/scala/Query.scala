@@ -6,10 +6,10 @@ object Query {
     val input = io.StdIn.readLine
     val nameQuery = Db.query[Country].whereEqual("name", input)
     val codeQuery = Db.query[Country].whereEqual("code", input)
-    (codeQuery.count(), nameQuery.count()) match {
-      case (0, 0) => println("No airports has been recognised")
-      case (1, _) => fetchAirports(codeQuery.fetchOne().get)
-      case (_, 1) => fetchAirports(nameQuery.fetchOne().get)
+    (codeQuery.count() != 0, nameQuery.count() != 0) match {
+      case (false, false) => println("No airports has been recognised")
+      case (true, _) => fetchAirports(codeQuery.fetchOne().get)
+      case (_, true) => fetchAirports(nameQuery.fetchOne().get)
     }
   }
   
