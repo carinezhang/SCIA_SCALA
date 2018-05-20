@@ -1,6 +1,5 @@
 # sbt
-# (may want to keep parts of 'project')
 bin/
-scala_project/project/
-scala_project/target/
-scala_project/build/
+project/
+target/
+build/
