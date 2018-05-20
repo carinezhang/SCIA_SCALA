@@ -3,7 +3,6 @@ import org.scalatest.FunSuite
 
 class ParserTest extends FunSuite {
   test("Parser.processString") {
-    assert(Parser.processString("\"string\"") == "string")
+    assert(Parser.processString("\"string\"\"") == "string\"")
   }
 }
-
